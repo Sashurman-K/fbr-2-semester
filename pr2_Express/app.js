@@ -28,7 +28,7 @@ app.post('/products'
             name,
             cost
         };
-        users.push(newProduct);
+        products.push(newProduct);
         res.status(201).json(newProduct);
     });
 app.get('/products'
@@ -37,7 +37,7 @@ app.get('/products'
     });
 app.get('/products/:id'
     , (req, res) => {
-        let product = users.find(u => u.id == req.params.id);
+        let product = products.find(u => u.id == req.params.id);
         res.send(JSON.stringify(product));
     });
 app.patch('/products/:id'
