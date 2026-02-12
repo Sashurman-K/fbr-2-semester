@@ -1,0 +1,47 @@
+$theme: dark;
+$primary: #3498db;
+
+body{
+        @if($theme == dark){
+        background-color: dimgrey;
+        color:white;
+    }
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: $primary 2px solid;
+    border-radius: 20px;
+    padding-inline: 20px;
+    margin-inline: 20px;
+}
+@mixin button($primary){
+    background-color: $primary;
+    color: white;
+}
+
+.card{
+    @if($theme == dark){
+        background-color: rgb(56, 56, 56);
+        color:white;
+    }
+    border-color: $primary;
+    &__title{
+        font-family: 'Courier New', Courier, monospace;
+    }
+    &__description{
+        width: 80%;;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}
+
+.btn{
+    @include button($primary);
+    border-radius: 10px;
+    margin-inline: 50px;
+    width: 80%;
+    height: 50px;
+}

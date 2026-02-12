@@ -1,0 +1,33 @@
+body {
+  background-color: dimgrey;
+  color: white; }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: #3498db 2px solid;
+  border-radius: 20px;
+  padding-inline: 20px;
+  margin-inline: 20px; }
+
+.card {
+  background-color: #383838;
+  color: white;
+  border-color: #3498db; }
+  .card__title {
+    font-family: 'Courier New', Courier, monospace; }
+  .card__description {
+    width: 80%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+.btn {
+  background-color: #3498db;
+  color: white;
+  border-radius: 10px;
+  margin-inline: 50px;
+  width: 80%;
+  height: 50px; }
+
+/*# sourceMappingURL=styles.css.map */
