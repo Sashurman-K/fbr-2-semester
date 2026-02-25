@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// Проверьте путь (ComicsPage или ComicsPages), должен быть тот, где лежит интерфейс
 import { Comic } from "../pages/ComicsPage/ComicsPages";
 
 interface ComicModalProps {
@@ -24,7 +23,6 @@ export default function ComicModal({
     onClose,
     onSubmit
 }: ComicModalProps) {
-    // Состояния для всех полей
     const [title, setTitle] = useState<string>("");
     const [cost, setCost] = useState<string>("");
     const [quantity, setQuantity] = useState<string>("");
@@ -33,7 +31,6 @@ export default function ComicModal({
 
     useEffect(() => {
         if (!open) return;
-        // Предзаполнение полей при редактировании
         setTitle(initialComic?.title ?? "");
         setCost(initialComic?.cost != null ? String(initialComic.cost) : "");
         setQuantity(initialComic?.quantity != null ? String(initialComic.quantity) : "");
@@ -52,7 +49,6 @@ export default function ComicModal({
         const parsedCost = Number(cost);
         const parsedQty = Number(quantity);
 
-        // Валидация
         if (!trimmedTitle) {
             alert("Введите название комикса");
             return;
@@ -62,7 +58,6 @@ export default function ComicModal({
             return;
         }
 
-        // Передаем полный объект на бэкенд
         onSubmit({
             id: initialComic?.id,
             title: trimmedTitle,

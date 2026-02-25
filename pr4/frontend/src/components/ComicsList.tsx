@@ -1,6 +1,6 @@
 import React from "react";
-import ComicItem from "./ComicItem"; // Убедитесь, что название файла ComicItem.tsx (без s)
-import { Comic } from "../pages/ComicsPage/ComicsPages"; // Исправил путь к интерфейсу
+import ComicItem from "./ComicItem"; 
+import { Comic } from "../pages/ComicsPage/ComicsPages";
 
 interface ComicsListProps {
     comics: Comic[];
@@ -18,7 +18,7 @@ export default function ComicsList({ comics, onEdit, onDelete }: ComicsListProps
             {comics.map((c) => (
                 <ComicItem
                     key={c.id}
-                    comic={c} // Передаем объект целиком со всеми новыми полями (img, description и т.д.)
+                    comic={c}
                     onEdit={onEdit}
                     onDelete={onDelete}
                 />

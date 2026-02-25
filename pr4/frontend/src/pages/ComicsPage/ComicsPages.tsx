@@ -4,14 +4,14 @@ import ComicsList from "../../components/ComicsList";
 import ComicModal from "../../components/ComicsModal";
 import { api } from "../../api";
 
-// 1. Обновляем интерфейс в соответствии с бэкендом
+
 export interface Comic {
   id: string | number;
   title: string;
   cost: number;
-  quantity: number;    // Новое поле
-  description: string; // Новое поле
-  img: string;         // Новое поле
+  quantity: number;
+  description: string;
+  img: string;         
 }
 
 type ModalMode = "create" | "edit";
@@ -70,7 +70,6 @@ export default function ComicsPage() {
     }
   };
 
-  // 2. Обновляем тип аргумента payload, чтобы включить все поля
   const handleSubmitModal = async (payload: {
     id?: string | number;
     title: string;
@@ -81,12 +80,11 @@ export default function ComicsPage() {
   }): Promise<void> => {
     try {
       if (modalMode === "create") {
-        // Убираем id из данных для создания (бэкенд создаст его сам через nanoid)
         const { id, ...createData } = payload;
         const newComic = await api.createComic(createData);
         setComics((prev) => [...prev, newComic]);
       } else if (payload.id) {
-        // При редактировании отправляем весь объект целиком
+
         const updatedComic = await api.updateComic(payload.id, payload);
         setComics((prev) =>
           prev.map((c) => (c.id === payload.id ? updatedComic : c))
