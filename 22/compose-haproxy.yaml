@@ -1,0 +1,41 @@
+services: # docker-compose -f compose-haproxy.yaml up --build
+  backend1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend1
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    environment:
+      - MSG=server-1
+
+  backend2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend2
+    ports:
+      - "3001:3000"
+    networks:
+      - app-network
+    environment:
+      - MSG=server-2
+
+  haproxy:
+    image: haproxy:alpine
+    container_name: haproxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    depends_on:
+      - backend1
+      - backend2
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

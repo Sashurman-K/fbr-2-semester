@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     default: Date.now,
   },
 }, {
-  timestamps: false, // ручное управление, но можно и автоматическое
+  timestamps: false, // ручное управление, отметками времени
 });
 
 // Автоматическое обновление updated_at при изменении
