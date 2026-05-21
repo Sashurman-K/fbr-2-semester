@@ -65,7 +65,6 @@ const resolvers = {
   },
   // Вложенные резолверы для связей "один-ко-многим"
   Author: {
-    // Поле books в типе Author
     books: (parent) => books.filter(b => b.authorId === parent.id),
   },
   Book: {
